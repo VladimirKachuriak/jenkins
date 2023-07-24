@@ -21,6 +21,7 @@
         <junit.version>5.9.2</junit.version>
         <mockito.version>5.2.0</mockito.version>
         <Hikari.version>5.0.1</Hikari.version>
+        <sonar.projectKey>my_project_key</sonar.projectKey>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -223,6 +224,26 @@
                     <source>17</source>
                     <target>17</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
